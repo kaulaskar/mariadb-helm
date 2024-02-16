@@ -6,6 +6,11 @@ pipeline{
   //     sh 'kubectl config use-context arn:aws:eks:us-west-2:897276212041:cluster/devops-eks-gCFGYxzJ'
   //     }
   // }
+    stage('clean workspace'){
+     steps{
+      deleteDir()
+     }
+    }
     stage('create db namespace'){
       steps{
     sh '''
