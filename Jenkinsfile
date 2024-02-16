@@ -15,18 +15,18 @@ pipeline{
       steps{
        sh '''
         myNamespace="database"
-        sudo kubectl get namespace | grep -q "^$myNamespace " || kubectl create namespace $myNamespace
+        sudo kubectl get namespace | grep -q "^$myNamespace " || sudo kubectl create namespace $myNamespace
          '''
     }
     }
   stage('deploy mariadb'){
     steps{
-    sh 'helm upgrade --install mariadb $WORKSPACE --values $WORKSPACE/createat-mariadb.yaml --namespace database '
+    sh 'sudo helm upgrade --install mariadb $WORKSPACE --values $WORKSPACE/createat-mariadb.yaml --namespace database '
     }
   }
  stage('pod status'){
    steps{
-   sh 'kubectl get pods -n database'
+   sh 'sudo kubectl get pods -n database'
    }
  }
     
