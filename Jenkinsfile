@@ -1,11 +1,11 @@
 pipeline{
   agent any
   stages{
-    #stage('connecting to cluster'){
-     # steps{
-     # sh 'kubectl config use-context arn:aws:eks:us-west-2:897276212041:cluster/devops-eks-gCFGYxzJ'
-      #}
-  #}
+  //   stage('connecting to cluster'){
+  //     steps{
+  //     sh 'kubectl config use-context arn:aws:eks:us-west-2:897276212041:cluster/devops-eks-gCFGYxzJ'
+  //     }
+  // }
     stage('create db namespace'){
       steps{
     sh '''
