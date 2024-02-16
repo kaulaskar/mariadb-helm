@@ -15,7 +15,7 @@ pipeline{
       steps{
        sh '''
         myNamespace="database"
-       kubectl get namespace | grep -q "^$myNamespace " || kubectl create namespace $myNamespace
+        sudo kubectl get namespace | grep -q "^$myNamespace " || kubectl create namespace $myNamespace
          '''
     }
     }
