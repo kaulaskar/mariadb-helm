@@ -6,14 +6,14 @@ pipeline{
   //     sh 'kubectl config use-context arn:aws:eks:us-west-2:897276212041:cluster/devops-eks-gCFGYxzJ'
   //     }
   // }
-    stage('clean workspace'){
-     steps{
-      deleteDir()
-     }
-    }
+    // stage('clean workspace'){
+    //  steps{
+    //   deleteDir()
+    //  }
+    // }
     stage('create db namespace'){
       steps{
-    sh '''
+       sh '''
         myNamespace="database"
        kubectl get namespace | grep -q "^$myNamespace " || kubectl create namespace $myNamespace
          '''
